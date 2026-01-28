@@ -299,6 +299,15 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         const lang = btn.getAttribute('data-lang');
         changeLanguage(lang);
+        
+        // Close mobile menu if open
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            const spans = navToggle.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
     });
 });
 
@@ -535,11 +544,11 @@ if (heroBg) {
 const serviceCards = document.querySelectorAll('.service-card');
 serviceCards.forEach(card => {
     card.addEventListener('mouseenter', function(e) {
-        this.style.background = 'rgba(255, 20, 147, 0.15)';
+        this.style.background = 'rgba(255, 20, 147, 0.12)';
     });
     
     card.addEventListener('mouseleave', function(e) {
-        this.style.background = 'rgba(255, 255, 255, 0.3)';
+        this.style.background = 'rgba(255, 255, 255, 0.05)';
     });
 });
 
